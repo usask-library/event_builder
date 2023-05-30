@@ -1,0 +1,159 @@
+body {
+    padding-top: 4.5rem;
+    font-family: 'Nunito', sans-serif;
+    /*font-size: 0.95rem;*/
+    line-height: 1.6;
+}
+
+#content {
+    max-height: calc(100vh - 4.5rem);
+}
+div#xmlSource, div#editor {
+    overflow-y: auto;
+    padding: 1em;
+    max-height: calc(100vh - 5rem);
+}
+
+.event {
+    display: block;
+    padding: 1rem;
+    border: 2px solid orange;
+}
+.event.active {
+    border-color: limegreen;
+    border-width: thick;
+}
+
+seg[type=object]:before, seg[type=objectSet]:before, seg[type=objectGroup]:before, seg[type=collection]:before {
+    content: "[" attr(xml\:id) "] ";
+    color: red;
+    font-weight: bold;
+}
+seg[type=object], seg[type=objectSet], seg[type=objectGroup], seg[type=collection] {
+    /* border: 1px solid red; */
+}
+name:before {
+    content: "[" attr(type) " " attr(ref) "] ";
+    font-weight: normal;
+    text-transform: capitalize;
+}
+name {
+    /* border: 1px solid blue; */
+    font-weight: bold;
+}
+name[type=person] {
+    /* border: 1px solid blue !important; */
+    color: blue;
+}
+name[type=place] {
+    /* border: 1px solid green !important; */
+    color: green;
+}
+date:before {
+    content: "[Date] ";
+    font-weight: normal;
+}
+date {
+    color: magenta;
+    font-weight: bold;
+}
+
+rs {
+    color: red;
+    font-weight: bold;
+}
+rs:before {
+    content: "[" attr(type) "] ";
+    color: red;
+    font-weight: normal;
+    text-transform: capitalize;
+}
+
+lb::after {
+    content: "\a";
+    white-space: pre;
+}
+
+choice > orig, choice > sic, choice > abbr {
+    display: none;
+}
+
+del {
+    text-decoration: line-through;
+}
+add:before {
+    content: "^"
+}
+add:after {
+    content: "^"
+}
+
+note:before {
+    content: "[note: ";
+}
+note:after {
+    content: "]";
+}
+
+[rend=italic] {
+    font-style: italic;
+}
+[rend=sup] {
+    vertical-align: super;
+    font-size: .83em;
+}
+[rend=underline] {
+    text-decoration: underline;
+}
+
+[ref="cf"]:before { content:"f" }
+[ref="cpipe"]:before { content:"b" }
+[ref="cs"]:before { content:"s" }
+[ref="csig"]:before { content:"p" }
+[ref="cComma"]:before { content:"d" }
+[ref="cy"]:before { content:"y" }
+[ref="cthalfO"]:before { content:"k" }
+[ref="cbhalfO"]:before { content:"l" }
+[ref="cemdash"]:before { content:"m" }
+[ref="cp"]:before { content:"r" }
+[ref="cbslash"]:before { content:"u" }
+[ref="cslash"]:before { content:"a" }
+[ref="cv"]:before { content:"o" }
+[ref="co"]:before { content:"e" }
+[ref="c7"]:before { content:"f" }
+[ref="cG"]:before { content:"g" }
+[ref="cg"]:before { content:"\0121" }
+[ref="c-"]:before { content:"n" }
+[ref="crevc"]:before { content:"d" }
+[ref="ca"]:before { content:"a" }
+[ref="ct"]:before { content:"t" }
+[ref="ch"]:before { content:"h" }
+[ref="csupdot"]:before { content:"i" }
+[ref="cc"]:before { content:"c" }
+[ref="cf"]:before { content:"f" }
+[ref="cL"]:before { content:"w" }
+[ref="cgold"]:before { content:"\2A00"; }
+[ref="cglot"]:before { content: "ing"; }
+[ref="Pbar"]:before { content:"\A750" }
+[ref="pbar"]:before { content:"\A751" }
+
+item[xml\:id]:before {
+    content: "[" attr(xml\:id) "] ";
+    color: red;
+    font-weight: bold;
+}
+item {
+    display: block;
+    margin: 0.6em 0;
+}
+
+label.required {
+    font-weight: bold;
+}
+label.required::after {
+    color: red;
+    content: " *";
+}
+select#type {
+    text-transform: capitalize;
+}
